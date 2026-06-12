@@ -1,0 +1,6 @@
+
+
+
+* * * * * netstat -nlput | grep :80 || /root/xray/xray -c /root/xray/vless.json
+* * * * * netstat -nlput | grep :8880 || /root/xray/xray -c /root/xray/vmess.json
+* * * * * netstat -nlput | grep :8388 || /root/xray/xray -c /root/xray/shadowsocks.json
