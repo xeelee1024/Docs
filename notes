@@ -1,6 +1,25 @@
 
 
 
+mkdir /root/xray
+cd /root/xray
+wget https://github.com/XTLS/Xray-core/releases/download/v26.6.1/Xray-linux-64.zip
+unzip Xray-linux-64.zip
+wget https://github.com/xeelee1024/docs/raw/refs/heads/master/vless.json
+wget https://github.com/xeelee1024/docs/raw/refs/heads/master/vmess.json
+wget https://github.com/xeelee1024/docs/raw/refs/heads/master/shadowsocks.json
+
+
 * * * * * netstat -nlput | grep :80 || /root/xray/xray -c /root/xray/vless.json
 * * * * * netstat -nlput | grep :8880 || /root/xray/xray -c /root/xray/vmess.json
 * * * * * netstat -nlput | grep :8388 || /root/xray/xray -c /root/xray/shadowsocks.json
+
+
+ss://chacha20-ietf-poly1305:pinduoduo@:8388#ss直连
+vmess://e9b9c5eb-d42b-5146-6778-dbf4f1468320@:8880?type=ws#vmess直连
+vless://689ce04b-bef7-c4a4-5566-fc84a4cce83b@:443?type=ws&security=tls#vless防封
+vless://689ce04b-bef7-c4a4-5566-fc84a4cce83b@cf.323888.xyz:443?encryption=none&type=ws&host=&security=tls&sni=#vless优选
+
+
+
+
